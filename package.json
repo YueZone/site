@@ -8,6 +8,7 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "packageManager": "pnpm@10.2.0",
   "dependencies": {
     "@tailwindcss/vite": "^4.0.17",
     "astro": "^5.5.5",
