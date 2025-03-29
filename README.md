@@ -5,4 +5,4 @@
 ## 相关文档
 
 - [Astro](https://docs.astro.build/zh-cn/getting-started/)
-- [tailwindcss](https://tailwindcss.com/)
+- [tailwindcss](https://tailwindcss.com/docs/)

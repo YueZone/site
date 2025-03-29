@@ -3,27 +3,27 @@
 @import "./scrollbar.css";
 
 @layer utilities {
-    .text-balance {
-        text-wrap: balance;
-    }
+  .text-balance {
+    text-wrap: balance;
+  }
 
-    .writing-tb {
-        writing-mode: horizontal-tb;
-    }
+  .writing-tb {
+    writing-mode: horizontal-tb;
+  }
 
-    .writing-rl {
-        writing-mode: vertical-rl;
-    }
+  .writing-rl {
+    writing-mode: vertical-rl;
+  }
 
-    .writing-lr {
-        writing-mode: vertical-lr;
-    }
+  .writing-lr {
+    writing-mode: vertical-lr;
+  }
 
-    .mask-unset {
-        mask: unset;
-    }
+  .mask-unset {
+    mask: unset;
+  }
 
-    .mask-gradient-90-transparent-to-white {
-        mask: linear-gradient(90deg, transparent, white 20%);
-    }
+  .mask-gradient-90-transparent-to-white {
+    mask: linear-gradient(90deg, transparent, white 20%);
+  }
 }

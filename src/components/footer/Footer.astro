@@ -1,14 +1,13 @@
 ---
-import MiitBeian from "./MiitBeian.astro"
-import MpsBeian from "./MpsBeian.astro"
+import Beian from "./Beian.astro";
 
-const miitBeian = "赣ICP备19008355号"
-const mpsBeian = "赣公网安备36082102000151号"
-const mpsBeianCode = 36082102000151
+const miit = "赣ICP备19008355号";
+const mps = "赣公网安备36082102000151号";
+const mpsCode = 36082102000151;
 ---
 
-<footer class="relative text-center text-[#535353] py-[1em]">
-    <MiitBeian>{miitBeian}</MiitBeian>
-    &emsp;|&emsp;
-    <MpsBeian code={mpsBeianCode}>{mpsBeian}</MpsBeian>
+<footer
+  class="h-1/4 relative text-center py-[1em] leading-normal border-t border-[#535353] bg-[#141516] text-[#999]"
+>
+  <Beian {...{ miit, mps, mpsCode }} />
 </footer>
