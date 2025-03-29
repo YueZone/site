@@ -1,0 +1,17 @@
+---
+const code: number | string = Astro.props.code;
+---
+
+{/* 公安备案号 */}
+<a
+  target="_blank"
+  href=`https://beian.mps.gov.cn/#/query/webSearch?code=${code}`
+  class="hover:text-[#ccc] hover:underline"
+>
+  <img
+    class="w-[1.2em] inline-block"
+    src="/mps-beian-icon.png"
+    alt="公网安备图标"
+  />
+  <slot />
+</a>

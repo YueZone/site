@@ -1,0 +1,14 @@
+---
+import MiitBeian from "./MiitBeian.astro"
+import MpsBeian from "./MpsBeian.astro"
+
+const miitBeian = "赣ICP备19008355号"
+const mpsBeian = "赣公网安备36082102000151号"
+const mpsBeianCode = 36082102000151
+---
+
+<footer class="relative text-center text-[#535353] py-[1em]">
+    <MiitBeian>{miitBeian}</MiitBeian>
+    &emsp;|&emsp;
+    <MpsBeian code={mpsBeianCode}>{mpsBeian}</MpsBeian>
+</footer>
