@@ -1,18 +1,12 @@
 ---
-import type { HeaderNavbarItemProps } from "../../_types/HeaderNavbarItemProps"
 import HeaderNavbarItem from "./HeaderNavbarItem.astro"
-
-const list: HeaderNavbarItemProps[] = [
-    {title: "INDEX", subtitle: "首页", href: "/#index"},
-    {title: "INFORMATION", subtitle: "情报", href: "/#more"},
-    {title: "MORE", subtitle: "更多内容", href: "/#more"},
-]
+import { headerNavItems } from "../../store"
 ---
 
 <nav class="portrait:hidden">
     <ul class="flex justify-evenly">
         {
-            list.map(item => <HeaderNavbarItem {...item} />)
+            headerNavItems.get().map(item => <HeaderNavbarItem {...item} />)
         }
     </ul>
 </nav>

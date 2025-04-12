@@ -1,9 +1,7 @@
 ---
-interface Props {
-  title: string;
-  subtitle: string;
-  href: string;
-}
+import type { HeaderNavItem } from '../../_types/HeaderNavItem';
+
+export type Props = HeaderNavItem
 
 const { title, subtitle, href } = Astro.props;
 ---
