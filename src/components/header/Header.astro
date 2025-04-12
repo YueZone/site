@@ -1,6 +1,7 @@
 ---
 import HeaderLogo from "./HeaderLogo.astro";
 import HeaderNavbar from "./HeaderNavbar.astro";
+import HeaderNavMenuButton from "./HeaderNavMenuButton.astro";
 ---
 
 <header
@@ -14,5 +15,5 @@ import HeaderNavbar from "./HeaderNavbar.astro";
         <Sound client:only="react"/>
         <OwnerInfo client:only="react"/> -->
   </div>
-  <!-- <NavMenu client:only="react"/> -->
+  <HeaderNavMenuButton />
 </header>
