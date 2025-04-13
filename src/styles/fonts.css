@@ -1,3 +1,16 @@
+@import "tailwindcss";
+
+@theme {
+  --font-benderBold: "Bender-Bold";
+  --font-benderRegular: "Bender-Regular";
+  --font-n15eBold: "Novecentosanswide-Bold";
+  --font-n15eDemiBold: "Novecentosanswide-DemiBold";
+  --font-n15eMedium: "Novecentosanswide-Medium";
+  --font-n15eUltraBold: "Novecentosanswide-UltraBold";
+  --font-oswaldMedium: "Oswald-Medium";
+  --font-oswaldDemiBold: "Oswald-DemiBold";
+}
+
 @font-face {
   font-family: Bender-Regular;
   font-style: normal;
@@ -9,9 +22,9 @@
     /* https://web.hycdn.cn/arknights/official/_next/static/media/Bender-Regular.803e4358.woff */
       url("/fonts/Bender-Regular.woff") format("woff"),
     /* https://web.hycdn.cn/arknights/official/_next/static/media/Bender-Regular.0605f735.ttf */
-      url("//fonts/Bender-Regular.ttf") format("truetype"),
+      url("/fonts/Bender-Regular.ttf") format("truetype"),
     /* https://web.hycdn.cn/arknights/official/_next/static/media/Bender-Regular.45df2362.eot */
-      url("//fonts/Bender-Regular.eot") format("embedded-opentype");
+      url("/fonts/Bender-Regular.eot") format("embedded-opentype");
 }
 
 @font-face {
@@ -125,17 +138,6 @@
       url("/fonts/Novecentosanswide-UltraBold.ttf") format("truetype"),
     /* https://web.hycdn.cn/arknights/official/_next/static/media/Novecentosanswide-UltraBold.767c4550.eot */
       url("/fonts/Novecentosanswide-UltraBold.eot") format("embedded-opentype");
-}
-
-@theme {
-    --font-benderBold: "Bender-Bold";
-    --font-benderRegular: "Bender-Regular";
-    --font-n15eBold: "Novecentosanswide-Bold";
-    --font-n15eDemiBold: "Novecentosanswide-DemiBold";
-    --font-n15eMedium: "Novecentosanswide-Medium";
-    --font-n15eUltraBold: "Novecentosanswide-UltraBold";
-    --font-oswaldMedium: "Oswald-Medium";
-    --font-oswaldDemiBold: "Oswald-DemiBold";
 }
 
 /**

@@ -1,8 +1,10 @@
 import { atom } from "nanostores";
-import type { HeaderNavItem } from "./_types/HeaderNavItem";
+import type { NavItem } from "./_types/NavItem";
+
+export const navIndex = atom(0);
 
 // 仅限服务端修改！
-export const headerNavItems = atom<HeaderNavItem[]>([
+export const navItems = atom<NavItem[]>([
     {title: "INDEX", subtitle: "首页", href: "/#index"},
     {title: "INFORMATION", subtitle: "情报", href: "/#more"},
     {title: "MORE", subtitle: "更多内容", href: "/#more"},

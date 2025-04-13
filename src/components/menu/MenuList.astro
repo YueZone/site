@@ -1,12 +1,12 @@
 ---
-import { headerNavItems } from "../../store";
+import { navItems } from "../../store";
 
 let delay = -70;
 ---
 
 <div id="menu-list" class="pt-[1.25rem] pr-[2.25rem] pb-0 pl-[3.375rem]">
   {
-    headerNavItems.get().map(({ title, subtitle, href }, index) => {
+    navItems.get().map(({ title, subtitle, href }, index) => {
       delay += 70;
       return (
         <a
@@ -44,7 +44,21 @@ let delay = -70;
 </style>
 
 <script>
-  import { showMenu } from "../../store";
+  import { navIndex, showMenu } from "../../store";
+
+  const menuItems = document.querySelectorAll("#menu-list .menu-list-item");
+
+  menuItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      navIndex.set(index);
+      showMenu.set(false);
+    });
+  });
+
+  navIndex.subscribe((index) => {
+    menuItems.forEach((item) => item.classList.remove("text-ark-blue"));
+    menuItems[index].classList.add("text-ark-blue");
+  });
 
   showMenu.subscribe((show) => {
     document.getElementById("menu-list")?.classList.toggle("show", show);

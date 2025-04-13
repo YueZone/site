@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "./fonts.css";
-@import "./scrollbar.css";
 
 @layer utilities {
   .text-balance {
