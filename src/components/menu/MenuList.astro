@@ -1,0 +1,15 @@
+---
+import { headerNavItems } from "../../store";
+import MenuListItem from "./MenuListItem.astro";
+
+let delay = -70;
+---
+
+<div class="pt-[1.25rem] pr-[2.25rem] pb-0 pl-[3.375rem]">
+  {
+    headerNavItems.get().map((item, index) => {
+      delay += 70;
+      return <MenuListItem {...item} />;
+    })
+  }
+</div>

@@ -1,0 +1,20 @@
+---
+import type { HeaderNavItem } from "../../_types/HeaderNavItem";
+
+export type Props = HeaderNavItem;
+
+const { title, subtitle, href } = Astro.props;
+---
+
+<a
+  target="_self"
+  href={href}
+  class="h-[7.5rem] flex items-center justify-between transition ease-in-out duration-200"
+  aria-label={title + " - " + subtitle}
+>
+  <div class="transition duration-300 text-4xl font-oswaldMedium">{title}</div>
+  <div class="h-full text-[1.75rem] relative flex items-center transition duration-300">
+    {subtitle}
+    <div class="w-full h-[.375rem] absolute right-0 bottom-[-.1875rem] bg-[currentColor]" />
+  </div>
+</a>
