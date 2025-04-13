@@ -28,15 +28,15 @@ const lineClass = "w-full h-[2px] bg-white absolute left-1/2 -translate-x-1/2 tr
 </style>
 
 <script>
-  import { showHeaderNavMenu } from "../../store";
+  import { showMenu } from "../../store";
 
   const headerNavMenuButton = document.getElementById("header-nav-menu-button");
 
   headerNavMenuButton?.addEventListener("click", () => {
-    showHeaderNavMenu.set(!showHeaderNavMenu.get());
+    showMenu.set(!showMenu.get());
   });
 
-  showHeaderNavMenu.subscribe((value) => {
-    headerNavMenuButton?.classList.toggle("open", value);
+  showMenu.subscribe((show) => {
+    headerNavMenuButton?.classList.toggle("open", show);
   });
 </script>

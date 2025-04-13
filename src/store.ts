@@ -10,4 +10,4 @@ export const headerNavItems = atom<HeaderNavItem[]>([
 
 export const showFooter = atom(false);
 
-export const showHeaderNavMenu = atom(false);
+export const showMenu = atom(false);
