@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+
 // TODO: Props 应该可选
 interface Props {
   miit: string;
@@ -27,7 +29,9 @@ const { miit, mps, mpsCode } = Astro.props;
     href=`https://beian.mps.gov.cn/#/query/webSearch?code=${mpsCode}`
     class="hover:text-[#ccc] hover:underline"
   >
-    <img
+    <Image
+      width={16}
+      height={16}
       class="w-[1.2em] inline-block"
       src="/mps-beian-icon.png"
       alt="公网安备图标"
