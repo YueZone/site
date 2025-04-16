@@ -40,46 +40,49 @@ const tinyIndex =
 
   // TODO: 将这些数据放到 store 中
   const labels = ["HOMEPAGE", "INFORMATION", "MORE"];
-  const nowIndex = document.getElementById("nowIndex")!;
-  const tinyIndex = document.getElementById("tinyIndex")!;
-  const microInfo = document.getElementById("microInfo")!;
-  const label = document.getElementById("label")!;
 
-  navIndex.subscribe((index, oldIndex) => {
-    if (typeof oldIndex === "undefined" || index === oldIndex) return;
+  document.addEventListener("astro:page-load", () => {
+    const nowIndex = document.getElementById("nowIndex")!;
+    const tinyIndex = document.getElementById("tinyIndex")!;
+    const microInfo = document.getElementById("microInfo")!;
+    const label = document.getElementById("label")!;
 
-    const nowIndexString = index.toString().padStart(2, "0");
-    const translateY = index > oldIndex ? "-translate-y-8" : "translate-y-8";
-    const oppositeY = index > oldIndex ? "translate-y-8" : "-translate-y-8";
+    navIndex.subscribe((index, oldIndex) => {
+      if (typeof oldIndex === "undefined" || index === oldIndex) return;
 
-    const replaceTranslateY = (el: HTMLElement) =>
-      el.classList.replace(translateY, oppositeY);
+      const nowIndexString = index.toString().padStart(2, "0");
+      const translateY = index > oldIndex ? "-translate-y-8" : "translate-y-8";
+      const oppositeY = index > oldIndex ? "translate-y-8" : "-translate-y-8";
 
-    const reset = (el: HTMLElement) =>
-      el.classList.remove("translate-y-8", "-translate-y-8", "opacity-0");
+      const replaceTranslateY = (el: HTMLElement) =>
+        el.classList.replace(translateY, oppositeY);
 
-    // 隐藏元素
-    [nowIndex, tinyIndex, microInfo, label].forEach((el) => {
-      el.classList.add(translateY, "opacity-0");
+      const reset = (el: HTMLElement) =>
+        el.classList.remove("translate-y-8", "-translate-y-8", "opacity-0");
+
+      // 隐藏元素
+      [nowIndex, tinyIndex, microInfo, label].forEach((el) => {
+        el.classList.add(translateY, "opacity-0");
+      });
+
+      // 修改元素
+      setTimeout(() => {
+        nowIndex.textContent = nowIndexString;
+        replaceTranslateY(nowIndex);
+      }, 240);
+      setTimeout(() => {
+        tinyIndex.textContent = `// ${nowIndexString} / ${String(labels.length - 1).padStart(2, "0")}`;
+        [tinyIndex, microInfo].forEach(replaceTranslateY);
+      }, 260);
+      setTimeout(() => {
+        label.textContent = labels[index];
+        replaceTranslateY(label);
+      }, 280);
+
+      // 显示元素
+      setTimeout(() => reset(nowIndex), 240 * 2);
+      setTimeout(() => [tinyIndex, microInfo].forEach(reset), 260 * 2);
+      setTimeout(() => reset(label), 280 * 2);
     });
-
-    // 修改元素
-    setTimeout(() => {
-      nowIndex.textContent = nowIndexString;
-      replaceTranslateY(nowIndex);
-    }, 240);
-    setTimeout(() => {
-      tinyIndex.textContent = `// ${nowIndexString} / ${String(labels.length - 1).padStart(2, "0")}`;
-      [tinyIndex, microInfo].forEach(replaceTranslateY);
-    }, 260);
-    setTimeout(() => {
-      label.textContent = labels[index];
-      replaceTranslateY(label);
-    }, 280);
-
-    // 显示元素
-    setTimeout(() => reset(nowIndex), 240 * 2);
-    setTimeout(() => [tinyIndex, microInfo].forEach(reset), 260 * 2);
-    setTimeout(() => reset(label), 280 * 2);
   });
 </script>

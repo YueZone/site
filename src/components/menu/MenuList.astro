@@ -46,21 +46,23 @@ let delay = -70;
 <script>
   import { navIndex, showMenu } from "../../store";
 
-  const menuItems = document.querySelectorAll("#menu-list .menu-list-item");
+  document.addEventListener("astro:page-load", () => {
+    const menuItems = document.querySelectorAll("#menu-list .menu-list-item");
 
-  menuItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      navIndex.set(index);
-      showMenu.set(false);
+    menuItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        navIndex.set(index);
+        showMenu.set(false);
+      });
     });
-  });
 
-  navIndex.subscribe((index) => {
-    menuItems.forEach((item) => item.classList.remove("text-ark-blue"));
-    menuItems[index].classList.add("text-ark-blue");
-  });
+    navIndex.subscribe((index) => {
+      menuItems.forEach((item) => item.classList.remove("text-ark-blue"));
+      menuItems[index].classList.add("text-ark-blue");
+    });
 
-  showMenu.subscribe((show) => {
-    document.getElementById("menu-list")?.classList.toggle("show", show);
+    showMenu.subscribe((show) => {
+      document.getElementById("menu-list")?.classList.toggle("show", show);
+    });
   });
 </script>

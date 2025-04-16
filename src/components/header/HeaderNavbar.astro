@@ -22,16 +22,18 @@ import { navItems } from "../../store";
 <script>
   import { navIndex } from "../../store";
 
-  const navbarItems = document.querySelectorAll("#header-navbar li");
+  document.addEventListener("astro:page-load", () => {
+    const navbarItems = document.querySelectorAll("#header-navbar li");
 
-  navbarItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      navIndex.set(index);
+    navbarItems.forEach((item, index) => {
+      item.addEventListener("click", () => {
+        navIndex.set(index);
+      });
+
+      navIndex.subscribe((index) => {
+        navbarItems.forEach((item) => item.classList.remove("text-ark-blue"));
+        navbarItems[index].classList.add("text-ark-blue");
+      });
     });
-  });
-
-  navIndex.subscribe((index) => {
-    navbarItems.forEach((item) => item.classList.remove("text-ark-blue"));
-    navbarItems[index].classList.add("text-ark-blue");
   });
 </script>
