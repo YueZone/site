@@ -5,5 +5,21 @@ import PageTracker from "../components/PageTracker.astro";
 
 <Layout>
   <PageTracker />
-  <main class="w-full h-full relative select-none" />
+  <main class="w-full h-full relative select-none"></main>
 </Layout>
+
+<script>
+  import { navIndex, navItems } from "../store";
+
+  function handleHashChange() {
+    const hash = location.hash.split("#").pop();
+    const index = navItems.get().findIndex((item) => {
+      return item.href.split("#").pop() === hash;
+    });
+
+    navIndex.set(index === -1 ? 0 : index);
+  }
+
+  window.addEventListener("hashchange", handleHashChange);
+  document.addEventListener("astro:page-load", handleHashChange);
+</script>
